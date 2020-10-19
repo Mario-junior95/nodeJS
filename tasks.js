@@ -42,6 +42,9 @@ function onDataReceived(text) {
   else if(text === 'hello\n'){
     hello();
   }
+  else if(text === 'help\n'){
+    help();
+  }
   else{
     unknownCommand(text);
   }
@@ -69,6 +72,15 @@ function hello(){
   console.log('hello!')
 }
 
+/**
+ * Function help
+ * 
+ * @returns {void}
+ */
+
+ function help(){
+   console.log("type hello to say 'hello!'\ntype quit to say 'Quitting now,goodbye!'\nor type exit to say 'Exit now, goodbye!'")
+ }
 
 /**
  * Exits the application
@@ -81,9 +93,11 @@ function quit(){
 }
 
 function exit(){
-  console.log('Quitting now, goodbye!')
+  console.log('Exit now, goodbye!')
   process.exit();
 }
 
+
 // The following line starts the application
 startApp("Mario-junior")
+console.log("-----If any issues appear please write 'help' command------")
