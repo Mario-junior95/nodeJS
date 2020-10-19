@@ -44,8 +44,21 @@ function onDataReceived(text) {
   }
   else if(text === 'help\n'){
     help();
-  }
-  else{
+  }else if(text ==="listOutput\n"){
+    listOutput(text); 
+  }else if(text.startsWith("add ")){
+    add(text)
+  }else if(text === "add\n"){
+    console.log("Syntax error, you should follow  add by a element to add it inside the list")
+  }else if(text.startsWith("remove\n")){
+    remove();
+  }else if(text.startsWith("remove1\n")){
+    remove1();
+  }else if(text.startsWith("remove1 ")){
+    console.log();
+  }else if(text.startsWith("remove2\n")){
+    remove2();
+  }else{
     unknownCommand(text);
   }
 }
@@ -78,6 +91,36 @@ function hello(value){
   } 
 }
 
+/**
+ * Creat a list
+ * 
+ * @returns
+ */
+var list =[];
+
+function listOutput(){
+   console.log(list);
+ }
+
+function add(value){
+  list.push(value.substr(4).replace("\n",""));
+}
+
+function remove(){ 
+    list.pop();
+}
+
+function  remove1(){
+  list.shift();
+}
+
+function remove2(){
+  const index = list.indexOf(list[2]);
+  if (index > -1) {
+    list.splice(index, 1);
+  }
+}
+
 
 /**
  * Function help
@@ -86,7 +129,7 @@ function hello(value){
  */
 
  function help(){
-   console.log("type hello to say 'hello!'\ntype quit to say 'Quitting now,goodbye!'\nor type exit to say 'Exit now, goodbye!'\nIf i write 'hello' the result will be 'hello!'\nIf i write 'hello anyName' the result will be 'hello anyName!'  ")
+   console.log("type hello to say 'hello!'\ntype quit to say 'Quitting now,goodbye!'\nor type exit to say 'Exit now, goodbye!'\nIf you write 'hello' the result will be 'hello!'\nIf you write 'hello anyName' the result will be 'hello anyName!'\n'remove' should delete the last element of the list\n'remove1' should delete the first element of a list\n'remove2' should delete the seconde element of a list\n'listOutput' to Output the result of your list   ")
  }
 
 /**
