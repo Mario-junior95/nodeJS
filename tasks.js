@@ -80,3 +80,4 @@ function quit(){
 
 // The following line starts the application
 startApp("Mario-junior")
+quit()
