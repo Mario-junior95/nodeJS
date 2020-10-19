@@ -1,4 +1,6 @@
-
+/**
+ * 
+ */
 /**
  * Starts the application
  * This is the function that is run when the app starts
@@ -34,7 +36,7 @@ function startApp(name){
  * @returns {void}
  */
 function onDataReceived(text) {
-  if (text === 'quit\n') {
+  if (text === 'quit\n' || text === 'exit\n') {
     quit();
   }
   else if(text === 'hello\n'){
@@ -78,6 +80,10 @@ function quit(){
   process.exit();
 }
 
+function exit(){
+  console.log('Quitting now, goodbye!')
+  process.exit();
+}
+
 // The following line starts the application
 startApp("Mario-junior")
-quit()
