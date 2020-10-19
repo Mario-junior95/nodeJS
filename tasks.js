@@ -111,15 +111,24 @@ function remove(){
 }
 
 function  remove1(){
-  list.shift();
+  if(list.length > 0){
+    list.shift();
+  }else if(list === undefined || list.length === 0){
+    console.log("error,you should insert at least one element inside the list before you can remove the first element of a list")
+  }
 }
 
 function remove2(){
-  const index = list.indexOf(list[2]);
+  if(list.length > 0){
+    const index = list.indexOf(list[1]);
   if (index > -1) {
     list.splice(index, 1);
   }
+  }else if(list === undefined || list.length === 0){
+    console.log("error,you should insert at least one element inside the list before you can remove the first element of a list")
+  }
 }
+
 
 
 /**
