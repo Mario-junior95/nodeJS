@@ -39,8 +39,8 @@ function onDataReceived(text) {
   if (text === 'quit\n' || text === 'exit\n') {
     quit();
   }
-  else if(text === 'hello\n'){
-    hello();
+  else if(text === 'hello\n' || text.startsWith("hello ")){
+    hello(text);
   }
   else if(text === 'help\n'){
     help();
@@ -49,6 +49,7 @@ function onDataReceived(text) {
     unknownCommand(text);
   }
 }
+
 
 
 /**
@@ -64,13 +65,19 @@ function unknownCommand(c){
 
 
 /**
- * Says hello
+ * Says hello name!
  *
  * @returns {void}
  */
-function hello(){
-  console.log('hello!')
+function hello(value){
+  if(value == "hello\n"){
+    console.log("hello!");
+  }else{
+    var tab = ["",value.replace("\n",""),"!"];
+    console.log(tab[0]+tab[1]+tab[2]);
+  } 
 }
+
 
 /**
  * Function help
@@ -79,7 +86,7 @@ function hello(){
  */
 
  function help(){
-   console.log("type hello to say 'hello!'\ntype quit to say 'Quitting now,goodbye!'\nor type exit to say 'Exit now, goodbye!'")
+   console.log("type hello to say 'hello!'\ntype quit to say 'Quitting now,goodbye!'\nor type exit to say 'Exit now, goodbye!'\nIf i write 'hello' the result will be 'hello!'\nIf i write 'hello anyName' the result will be 'hello anyName!'  ")
  }
 
 /**
