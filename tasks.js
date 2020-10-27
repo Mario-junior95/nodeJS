@@ -46,6 +46,8 @@ function onDataReceived(text) {
     list();
   }else if(tab[0] === 'add'){
     add(text);
+  }else if(text === "remove\n" || tab[0] === 'remove'){
+    remove(text);
   }else{
     unknownCommand(text);
   }
@@ -84,7 +86,7 @@ function hello(text){
  * @returns
  */
 function help(){
-  console.log('------------------ list of commands ------------------\n"hello" ---> excute hello! as result\n"hello anyName" ---> excute hello anyName! as result\n"exit" or "quit" ---> exit the program ');
+  console.log('------------------ list of commands ------------------\n"hello" ---> excute hello! as result\n"hello anyName" ---> excute hello anyName! as result\n"add anyText" ---> Will add the text in the end of my array tasks\n"remove anyNumber"---> will remove any element from the array you chosed using only number\nexit" or "quit" ---> exit the program ');
 }
 
 
@@ -106,6 +108,16 @@ function add(text){
   tab = text.split(" ");
   tasks.push(tab[1])
 }
+
+function remove(text){
+  tab = text.split(" ");
+  if(tab[0] === "remove\n"){
+    tasks.pop();
+  }else{
+    tasks.splice(parseInt(tab[1])-1,1);
+  }
+}
+
 
 /**
  * Exits the application
