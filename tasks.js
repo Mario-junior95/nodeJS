@@ -100,7 +100,7 @@ var tasks = ["Ski","Coding","PingPong"];
 
 function list(){
   for(var i = 0 ; i < tasks.length ; i++){
-    console.log(i);
+    console.log(tasks[i]);
   }
 }
 
@@ -114,7 +114,12 @@ function remove(text){
   if(tab[0] === "remove\n"){
     tasks.pop();
   }else{
-    tasks.splice(parseInt(tab[1])-1,1);
+    if(tab[1] > tasks.length){
+      console.log("you enter a number that does not exist")
+    }else{
+      
+      tasks.splice(parseInt(tab[1]-1),1);
+    }
   }
 }
 
