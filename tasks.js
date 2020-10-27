@@ -48,6 +48,8 @@ function onDataReceived(text) {
     add(text);
   }else if(text === "remove\n" || tab[0] === 'remove'){
     remove(text);
+  }else if(tab[0] === "edit" || text !== "edit\n"){
+    edit(text);
   }else{
     unknownCommand(text);
   }
@@ -117,12 +119,20 @@ function remove(text){
     if(tab[1] > tasks.length){
       console.log("you enter a number that does not exist")
     }else{
-      
       tasks.splice(parseInt(tab[1]-1),1);
     }
   }
 }
 
+
+function edit(text){
+  tab = text.split(" ");
+  if(!isNaN(tab[1]) && tab.length === 3 && tab[1] < tasks.length){
+    tasks.splice(parseInt(tab[1]-1),1,tab[2].trim());
+  }else{
+    tasks.splice(parseInt(tasks.length-1),1,tab[1]);
+  }
+}
 
 /**
  * Exits the application
