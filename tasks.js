@@ -44,8 +44,9 @@ function onDataReceived(text) {
     help();
   }else if(text === 'list\n'){
     list();
-  }
-  else{
+  }else if(tab[0] === 'add'){
+    add(text);
+  }else{
     unknownCommand(text);
   }
 }
@@ -99,6 +100,11 @@ function list(){
   for(var i = 0 ; i < tasks.length ; i++){
     console.log(i);
   }
+}
+
+function add(text){
+  tab = text.split(" ");
+  tasks.push(tab[1])
 }
 
 /**
