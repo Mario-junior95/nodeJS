@@ -42,6 +42,8 @@ function onDataReceived(text) {
     hello(text);
   }else if(text === 'help\n'){
     help();
+  }else if(text === 'list\n'){
+    list();
   }
   else{
     unknownCommand(text);
@@ -82,6 +84,21 @@ function hello(text){
  */
 function help(){
   console.log('------------------ list of commands ------------------\n"hello" ---> excute hello! as result\n"hello anyName" ---> excute hello anyName! as result\n"exit" or "quit" ---> exit the program ');
+}
+
+
+/**
+ * 
+ * add three functions: add, remove, and list
+ * 
+ * @returns
+ */
+var tasks = ["Ski","Coding","PingPong"];
+
+function list(){
+  for(var i = 0 ; i < tasks.length ; i++){
+    console.log(i);
+  }
 }
 
 /**
