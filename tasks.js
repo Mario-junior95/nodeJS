@@ -81,7 +81,7 @@ function hello(text){
  * @returns
  */
 function help(){
-  console.log('------------------ list of commands ------------------\n"hello" ---> excute hello! as result\n"exit" or "quit" ---> exit the program ');
+  console.log('------------------ list of commands ------------------\n"hello" ---> excute hello! as result\n"hello anyName" ---> excute hello anyName! as result\n"exit" or "quit" ---> exit the program ');
 }
 
 /**
